@@ -1,4 +1,13 @@
 import Common
+from MemoryGame import MemoryGame
+from GuessGame import GuessGame
+from CurrencyRouletteGame import CurrencyRouletteGame
+
+option_to_games = {
+    '1': MemoryGame,
+    '2': GuessGame,
+    '3': CurrencyRouletteGame
+}
 
 
 def welcome(name):
@@ -27,4 +36,10 @@ def load_game():
 
     chosen_game = Common.ask_for_numeric_input(choose_game_text, 1, 3)
     chosen_difficulty = Common.ask_for_numeric_input(choose_game_difficulty_text, 1, 5)
-    #TODO: Shouldn't this return the selection ?
+
+    game = option_to_games[str(chosen_game)](chosen_difficulty)
+    result = game.play()
+    if result:
+        print("You won")
+    else:
+        print("You lost")
