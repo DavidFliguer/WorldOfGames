@@ -4,7 +4,7 @@ import random
 import os, platform
 import time
 
-
+# those 2 methods can be also in common file (or, in utils file)
 def is_list_equal(user_list, system_list):
     return user_list == system_list
 
