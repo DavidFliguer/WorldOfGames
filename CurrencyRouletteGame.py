@@ -12,6 +12,7 @@ class CurrencyRouletteGame(Game):
         self.random_number = random.randint(1, 100)
 
     def get_money_interval(self):
+        # I would move the url as a class const value
         rates = requests.get("https://api.exchangeratesapi.io/latest?base=USD&symbols=ILS").json()
         rate = rates['rates']['ILS']
         converted = int(self.random_number * rate)
