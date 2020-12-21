@@ -1,4 +1,14 @@
-import sys
+import sys, os
+import platform
+
+SCORES_FILE_NAME = "Score.txt"
+BAD_RETURN_CODE = -1
+
+def screen_cleaner():
+    if platform.system() == 'Windows':
+        os.system('cls')
+    elif platform.system() == 'Linux':
+        os.system('clear')
 
 
 def ask_for_numeric_input(message, minimum_value=(-sys.maxsize - 1), maximum_value=sys.maxsize, convert_to_int=True

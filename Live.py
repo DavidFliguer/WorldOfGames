@@ -1,7 +1,8 @@
-import Common
+import Utils
 from MemoryGame import MemoryGame
 from GuessGame import GuessGame
 from CurrencyRouletteGame import CurrencyRouletteGame
+from Score import add_score
 
 option_to_games = {
     '1': MemoryGame,
@@ -34,12 +35,12 @@ def load_game():
             3. Currency Roulette - try and guess the value of a random amount of USD in ILS"""
     choose_game_difficulty_text = """Please choose game difficulty from 1 to 5:"""
 
-    chosen_game = Common.ask_for_numeric_input(choose_game_text, 1, 3)
-    chosen_difficulty = Common.ask_for_numeric_input(choose_game_difficulty_text, 1, 5)
+    chosen_game = Utils.ask_for_numeric_input(choose_game_text, 1, 3)
+    chosen_difficulty = Utils.ask_for_numeric_input(choose_game_difficulty_text, 1, 5)
 
     game = option_to_games[str(chosen_game)](chosen_difficulty)
     result = game.play()
     if result:
-        print("You won")
+        add_score(chosen_difficulty)
     else:
         print("You lost")

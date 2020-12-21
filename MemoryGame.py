@@ -1,19 +1,13 @@
-from Common import ask_for_numeric_input
+from Utils import ask_for_numeric_input, screen_cleaner
 from Game import Game
 import random
 import os, platform
 import time
 
+
 # those 2 methods can be also in common file (or, in utils file)
 def is_list_equal(user_list, system_list):
     return user_list == system_list
-
-
-def clear_output():
-    if platform.system() == 'Windows':
-        os.system('cls')
-    elif platform.system() == 'Linux':
-        os.system('clear')
 
 
 class MemoryGame(Game):
@@ -35,7 +29,7 @@ class MemoryGame(Game):
         system_list = self.generate_sequence()
         print(system_list)
         time.sleep(0.7)
-        clear_output()
+        screen_cleaner()
         user_list = self.get_list_from_user()
         return is_list_equal(user_list, system_list)
     # user_input = self.get_guess_from_user()

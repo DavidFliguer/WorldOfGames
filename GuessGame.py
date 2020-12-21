@@ -1,4 +1,4 @@
-from Common import ask_for_numeric_input
+from Utils import ask_for_numeric_input
 from Game import Game
 import random
 
