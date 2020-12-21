@@ -2,6 +2,9 @@ from Score import get_current_score
 
 
 def score_server():
+    """
+    Returns a string which is an HTML displaying the curent user score (Or error in case there was an issue)
+    """
     base_html = """
     <html>
         <head>

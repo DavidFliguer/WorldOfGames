@@ -32,5 +32,3 @@ class MemoryGame(Game):
         screen_cleaner()
         user_list = self.get_list_from_user()
         return is_list_equal(user_list, system_list)
-    # user_input = self.get_guess_from_user()
-    # return self.compare_results(user_input)

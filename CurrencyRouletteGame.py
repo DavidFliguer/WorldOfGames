@@ -1,7 +1,7 @@
 import requests
 import random
 
-from Utils import ask_for_numeric_input
+from Utils import ask_for_numeric_input, EXCHANGE_API_URL
 from Game import Game
 
 
@@ -13,7 +13,7 @@ class CurrencyRouletteGame(Game):
 
     def get_money_interval(self):
         # I would move the url as a class const value
-        rates = requests.get("https://api.exchangeratesapi.io/latest?base=USD&symbols=ILS").json()
+        rates = requests.get(EXCHANGE_API_URL).json()
         rate = rates['rates']['ILS']
         converted = int(self.random_number * rate)
         return range(converted - (5 - self.difficulty), converted + (5 - self.difficulty))

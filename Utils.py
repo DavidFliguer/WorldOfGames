@@ -3,8 +3,14 @@ import platform
 
 SCORES_FILE_NAME = "Score.txt"
 BAD_RETURN_CODE = -1
+EXCHANGE_API_URL = "https://api.exchangeratesapi.io/latest?base=USD&symbols=ILS"
+
 
 def screen_cleaner():
+    """
+    Helper function that cleans the screen
+    """
+    # Invoke the OS command relevant for each platform
     if platform.system() == 'Windows':
         os.system('cls')
     elif platform.system() == 'Linux':
