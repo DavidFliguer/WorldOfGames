@@ -13,7 +13,9 @@ class GuessGame(Game):
         return random.randint(1, self.difficulty)
 
     def get_guess_from_user(self):
-        user_input = ask_for_numeric_input("Make your guess", 1, self.difficulty)
+        user_input = ask_for_numeric_input(
+            "Guess which number computer chose between 1 and {}".format(str(self.difficulty)),
+            1, self.difficulty)
         return user_input
 
     def compare_results(self, user_input):
